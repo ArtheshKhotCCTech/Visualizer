@@ -49,6 +49,9 @@
     <ClInclude Include="HeaderFiles\Writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HeaderFiles\ObjWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="HeaderFiles\Visualizer.h">
@@ -81,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

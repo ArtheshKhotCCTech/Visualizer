@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFiles\DataWriter.h" />
+    <ClInclude Include="HeaderFiles\ObjWriter.h" />
     <ClInclude Include="HeaderFiles\Point.h" />
     <ClInclude Include="HeaderFiles\Reader.h" />
     <ClInclude Include="HeaderFiles\STLReader.h" />
@@ -107,6 +108,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\DataWriter.cpp" />
+    <ClCompile Include="src\ObjWriter.cpp" />
     <ClCompile Include="src\Point.cpp" />
     <ClCompile Include="src\Reader.cpp" />
     <ClCompile Include="src\STLReader.cpp" />

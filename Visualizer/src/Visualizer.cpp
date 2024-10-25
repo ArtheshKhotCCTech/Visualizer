@@ -3,6 +3,7 @@
 #include "Visualizer.h"
 #include "STLReader.h"
 #include "DataWriter.h"
+#include "ObjWriter.h"
 
 
 Visualizer::Visualizer(QWidget* parent)
@@ -65,13 +66,13 @@ void  Visualizer::onLoadFileClick()
 void Visualizer::onTranslateClick()
 {
     QString fileName = QFileDialog::getSaveFileName(this,
-        tr("Save Data File"), "/data", tr("Data Files (*.dat)"));
+        tr("Save Data File"), "/data", tr("Data Files (*.obj)"));
 
     if (!fileName.isEmpty())
     {
         translateEdit->clear();
         
-        DataWriter writer;
+        ObjWriter writer;
         writer.Write(fileName.toStdString(), triangulation);
 
         translateEdit->setText(fileName);

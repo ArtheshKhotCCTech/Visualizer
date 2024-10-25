@@ -2,6 +2,7 @@
 #include "Point.h"
 #include "Reader.h"
 #include<fstream>
+#include <iostream>
 #include<sstream>
 #include<vector>
 #include<map>
@@ -25,10 +26,8 @@ bool STLReader::operator()(double a, double b) const
 void STLReader::read(const std::string& fileName, Triangulation& triangulation)
 {
     std::map<double, int, STLReader> uniqueValueMap;
-    std::map<Point, int> uniqueVertexMap;
-    std::map<Point, int> uniqueNormalMap;
     double xyz[3]; // To store 3 coordinates as double
-    std::vector<int> pointIndices; // To store indices of unique double values
+    std::vector<size_t> pointIndices; // To store indices of unique double values
 
     std::ifstream infile(fileName);
     if (infile.is_open())
@@ -44,7 +43,6 @@ void STLReader::read(const std::string& fileName, Triangulation& triangulation)
                 if (word == "vertex" || word=="normal")
                 {
                     ss >> xyz[0] >> xyz[1] >> xyz[2];
-
                     for (int i = 0; i < 3; i++)
                     {
                         auto pair = uniqueValueMap.find(xyz[i]);
@@ -70,18 +68,6 @@ void STLReader::read(const std::string& fileName, Triangulation& triangulation)
                     Triangle t(normal, p1, p2, p3);
                     triangulation.Triangles.push_back(t);
                     pointIndices.clear();
-
-                    if (uniqueNormalMap.find(normal) == uniqueNormalMap.end()) {
-                        uniqueNormalMap[normal] = triangulation.uniqueNormal.size();
-                        triangulation.uniqueNormal.push_back(normal);
-                    }
-
-                    for (Point p : { p1, p2, p3 }) {
-                        if (uniqueVertexMap.find(p) == uniqueVertexMap.end()) {
-                            uniqueVertexMap[p] = triangulation.uniqueVertex.size();
-                            triangulation.uniqueVertex.push_back(p);
-                        }
-                    }
                 }
             }
         }

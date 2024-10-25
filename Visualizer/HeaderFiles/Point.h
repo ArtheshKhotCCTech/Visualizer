@@ -7,6 +7,7 @@ class Point
 	int mZ;
 
 public:
+	Point();
 	Point(int x, int y, int z);
 	~Point();
 	
@@ -15,4 +16,5 @@ public:
 	int Z();
 
 	bool operator<(const Point& other) const;
+	bool operator==(const Point& other) const;
 };
