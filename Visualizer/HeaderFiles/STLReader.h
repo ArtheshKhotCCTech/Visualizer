@@ -11,7 +11,7 @@ public:
     ~STLReader();
 
     // Reads the STL file specified by fileName and stores the triangulation data
-    void read(const std::string& fileName, Triangulation& triangulation);
+    void read(const QString& fileName, Triangulation& triangulation);
 
     bool operator()(double a, double b) const;
 };

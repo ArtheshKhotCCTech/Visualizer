@@ -1,8 +1,8 @@
 #pragma once
-#include<string>
+#include<QString>
 #include "Triangulation.h"
 
 class Reader
 {
-	virtual void read(const std::string& fileName, Triangulation& triangulation) = 0;
+	virtual void read(const QString& fileName, Triangulation& triangulation) = 0;
 };

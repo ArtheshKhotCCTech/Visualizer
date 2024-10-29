@@ -57,7 +57,7 @@ void  Visualizer::onLoadFileClick()
         loadEdit->clear();
         
         STLReader reader;
-        reader.read(fileName.toStdString(), triangulation);
+        reader.read(fileName, triangulation);
 
         loadEdit->setText(fileName);
     }
